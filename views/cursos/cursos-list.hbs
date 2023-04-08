@@ -1,0 +1,27 @@
+<div class="album py-5 bg-light">
+  <div>
+
+
+    <div class="row justify-content-center">
+
+      {{#if hasCursos}}
+
+        {{#each cursos as |curso|}}
+
+          <div class="card col-md-3" style="width: 18rem;">
+                <img src="{{curso.image}}" class="card-img-top image" alt="{{curso.name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{curso.name}}</h5>
+                  <p class="card-text">{{curso.description}}</p>
+                  <a href="/edit-tipos/{{curso.id}}?edit=true"class="btn btn-warning">Detalles</a>
+                </div>
+          </div>
+      {{/each}}
+
+      {{else}}
+      <h1>No hay cursos en la base de datos</h1>
+      {{/if}}
+
+    </div>
+  </div>
+</div>

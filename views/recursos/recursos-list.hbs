@@ -1,0 +1,27 @@
+<div class="album py-5 bg-light">
+  <div>
+
+
+    <div class="row justify-content-center">
+
+      {{#if hasRecursos}}
+
+        {{#each recursos as |recurso|}}
+
+          <div class="card col-md-3" style="width: 18rem;">
+                <img src="{{recurso.image}}" class="card-img-top image" alt="{{recurso.name}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{recurso.name}}</h5>
+                  <p class="card-text">{{recurso.description}}</p>
+                  <a href="/edit-tipos/{{recurso.id}}?edit=true"class="btn btn-warning">Detalles</a>
+                </div>
+          </div>
+      {{/each}}
+
+      {{else}}
+      <h1>No hay recursos en la base de datos</h1>
+      {{/if}}
+
+    </div>
+  </div>
+</div>
