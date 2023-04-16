@@ -2,7 +2,7 @@ const Sequelize = require("sequelize");
 
 const sequelize = require("../context/database");
 
-const Recursos = sequelize.define("recurso", {
+const Usuario = sequelize.define("usuario", {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
@@ -17,14 +17,18 @@ const Recursos = sequelize.define("recurso", {
         type: Sequelize.STRING,
         allowNull: false,
     },
-    description: {
+    email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    telefono: {
         type: Sequelize.STRING,
         allowNull: false,
     },
     type: {
         type: Sequelize.STRING,
         allowNull: false,
-    }      
+    }         
 });
 
-module.exports = Recursos;
+module.exports = Usuario;

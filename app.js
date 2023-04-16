@@ -5,6 +5,7 @@ const sequelize = require("./context/database");
 const Herramientas = require("./models/Herramientas");
 const Recursos = require("./models/Recursos");
 const Cursos = require("./models/Cursos");
+const Usuario = require("./models/Usuario");
 
 const errorController = require("./controllers/ErrorController");
 
@@ -34,10 +35,14 @@ app.use(express.static(path.join(__dirname, "public")));
 const herramientasRouter = require("./routes/herramientas");
 const recursosRouter = require("./routes/recursos");
 const cursosRouter = require("./routes/cursos");
+const registrarRouter = require("./routes/registrar");
+
 
 app.use(herramientasRouter);
 app.use(recursosRouter);
 app.use(cursosRouter);
+app.use(registrarRouter);
+
 
 
 app.use(errorController.Get404);

@@ -30,6 +30,8 @@ exports.GetDetailsHerramientas = (req, res, next) => {
 
 exports.PostHerramientasBySearch = (req, res, next) => {
   const search = req.body.Search;
+  const searchMode = false;
+
   Herramientas.findAll({where: {name: search}})
     .then((result) => {
     
@@ -39,6 +41,7 @@ exports.PostHerramientasBySearch = (req, res, next) => {
         pageTitle: "Herramientas",
         herramientasActive: true,
         herramientas: herramientas,
+        searchMode: true,
         hasHerramientas: herramientas.length > 0,
       });
     })

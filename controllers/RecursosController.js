@@ -30,6 +30,7 @@ exports.GetDetailsRecursos = (req, res, next) => {
 
 exports.PostRecursosBySearch = (req, res, next) => {
   const search = req.body.Search;
+  const searchMode = false;
   Recursos.findAll({where: {name: search}})
     .then((result) => {
     
@@ -39,6 +40,7 @@ exports.PostRecursosBySearch = (req, res, next) => {
         pageTitle: "Recursos",
         recursosActive: true,
         recursos: recursos,
+        searchMode: true,
         hasRecursos: recursos.length > 0,
       });
     })

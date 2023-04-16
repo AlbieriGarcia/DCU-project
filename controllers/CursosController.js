@@ -30,6 +30,7 @@ exports.GetDetailsCursos = (req, res, next) => {
 
 exports.PostCursosBySearch = (req, res, next) => {
   const search = req.body.Search;
+  const searchMode = false;
   Cursos.findAll({where: {name: search}})
     .then((result) => {
     
@@ -39,6 +40,7 @@ exports.PostCursosBySearch = (req, res, next) => {
         pageTitle: "Cursos",
         cursosActive: true,
         cursos: cursos,
+        searchMode: true,
         hasCursos: cursos.length > 0,
       });
     })

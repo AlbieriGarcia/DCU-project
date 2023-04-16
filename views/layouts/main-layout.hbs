@@ -35,7 +35,14 @@
             <li class="nav-item">
               <a class="nav-link {{#if cursosActive}}active{{/if}}" href="/cursos">Cursos</a>
             </li>
+            <li class="nav-item ">
+              <a class="nav-link {{#if registrarActive}}active{{/if}}" href="/crear-usuario">Registrate</a>
+            </li>
+            <li class="nav-item ">
+              <a class="nav-link {{#if perfilActive}}active{{/if}}" href="/perfil">Perfil</a>
+            </li>
           </ul>
+
           <form class="d-flex align-items-center" 
           action="
           {{#if herramientasActive}}/search-herramientas{{/if}}
@@ -47,8 +54,6 @@
           </form>
         </div>
     </nav>
-
-    
 
     <main>
 

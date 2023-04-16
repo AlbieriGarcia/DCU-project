@@ -1,3 +1,17 @@
+<div class="filter-container">
+      {{#if searchMode}}
+      {{else}}
+          <div class="category-list">
+            <h2 class="text-success">Filtrar</h2>
+              <label>
+                <input type="checkbox" class="category-item" category="Profesor">Profesor
+              </label>
+              <label>
+                <input type="checkbox" class="category-item" category="Estudiante">Estudiante
+              </label>
+          </div>
+      {{/if}}
+</div>
 <div class="album py-5 bg-light">
   <div>
 
@@ -8,7 +22,7 @@
 
         {{#each recursos as |recurso|}}
 
-          <div class="card col-md-3" style="width: 18rem;">
+          <div class="card col-md-3 book-item" category="{{recurso.type}}" style="width: 18rem;">
                 <img src="{{recurso.image}}" class="card-img-top image" alt="{{recurso.name}}">
                 <div class="card-body">
                   <h5 class="card-title">{{recurso.name}}</h5>
