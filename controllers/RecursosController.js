@@ -1,4 +1,5 @@
 const Recursos = require("../models/Recursos");
+const { Op } = require("sequelize");
 
 exports.GetRecursosList = (req, res, next) => {
   Recursos.findAll()
@@ -29,9 +30,9 @@ exports.GetDetailsRecursos = (req, res, next) => {
 
 
 exports.PostRecursosBySearch = (req, res, next) => {
-  const search = req.body.Search;
+  const search = req.body.Search.toLowerCase();
   const searchMode = false;
-  Recursos.findAll({where: {name: search}})
+  Recursos.findAll({where: {name: {[Op.like]: `%${search}%`}}})
     .then((result) => {
     
       const recursos = result.map((result) => result.dataValues);

@@ -10,6 +10,7 @@ exports.GetCrearUsuario = (req, res, next) => {
             pageTitle: "Create usuario",
             registrarActive: true,
             usuario: usuario,
+            hasUser: usuario.length > 0,
         
           })
         })

@@ -24,7 +24,11 @@ const Cursos = sequelize.define("curso", {
     type: {
         type: Sequelize.STRING,
         allowNull: false,
-    }      
+    },
+    link: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },       
 });
 
 module.exports = Cursos;

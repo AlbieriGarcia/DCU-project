@@ -10,18 +10,18 @@
     border-color: #28501e;
     border-width: medium;
 }
-.category-list{
-    display: flex;
-    flex-direction: column;
-    width: 18%;
-}
 
 .filter-container{
-    display: flex;
     max-width: 1100px;
     width: 90%;
     margin: auto;
 }
+.form-check {
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+
 .gradient-custom {
     /* fallback for old browsers */
     background: #f6d365;
@@ -31,4 +31,15 @@
     
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     background: linear-gradient(to right bottom, rgba(246, 211, 101, 1), rgba(253, 160, 133, 1))
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+.img {
+    width: 300px;
+    height: 300px;
+    object-fit: fill;
 }

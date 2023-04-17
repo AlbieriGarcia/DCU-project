@@ -1,4 +1,5 @@
 const Cursos = require("../models/Cursos");
+const { Op } = require("sequelize");
 
 exports.GetCursosList = (req, res, next) => {
   Cursos.findAll()
@@ -27,11 +28,10 @@ exports.GetDetailsCursos = (req, res, next) => {
   });
 };
 
-
 exports.PostCursosBySearch = (req, res, next) => {
-  const search = req.body.Search;
-  const searchMode = false;
-  Cursos.findAll({where: {name: search}})
+  const search = req.body.Search.toLowerCase();
+  const searchMode = true;
+  Cursos.findAll({where: {name: {[Op.like]: `%${search}%`}}})
     .then((result) => {
     
       const cursos = result.map((result) => result.dataValues);
@@ -40,7 +40,7 @@ exports.PostCursosBySearch = (req, res, next) => {
         pageTitle: "Cursos",
         cursosActive: true,
         cursos: cursos,
-        searchMode: true,
+        searchMode: searchMode,
         hasCursos: cursos.length > 0,
       });
     })
@@ -48,7 +48,6 @@ exports.PostCursosBySearch = (req, res, next) => {
       console.log(err);
     });
 };
-
 
 
 

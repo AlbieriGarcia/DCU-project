@@ -3,37 +3,46 @@
       {{else}}
           <div class="category-list">
             <h2 class="text-success">Filtrar</h2>
-              <label>
-                <input type="checkbox" class="category-item" category="Profesor">Profesor
-              </label>
-              <label>
-                <input type="checkbox" class="category-item" category="Estudiante">Estudiante
-              </label>
+              <div class="form-check">
+                <input class="form-check-input category-item" type="checkbox" category="Profesor" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">Profesor</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input category-item" type="checkbox" category="Estudiante" id="flexCheckDefault" />
+                <label class="form-check-label" for="flexCheckDefault">Estudiante</label>
+              </div>
           </div>
       {{/if}}
 </div>
-<div class="album py-5 bg-light">
-  <div>
-
-
-    <div class="row justify-content-center">
+<h1 class="text-center">Cursos</h1>
+<div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
 
       {{#if hasCursos}}
 
         {{#each cursos as |curso|}}
 
-          <div class="card col-md-3 book-item" category="{{curso.type}}" style="width: 18rem;">
-                <img src="{{curso.image}}" class="card-img-top image" alt="{{curso.name}}">
-                <div class="card-body">
-                  <h5 class="card-title">{{curso.name}}</h5>
-                  <p class="card-text">{{curso.description}}</p>
-                  <a href="/edit-tipos/{{curso.id}}?edit=true"class="btn btn-warning">Detalles</a>
-                </div>
-          </div>
+              <div class="card book-item" category="{{curso.type}}">
+                  <div class="card-horizontal">
+                      <div class="img-square-wrapper">
+                          <img class="img" src="{{curso.image}}" alt="{{curso.name}}">
+                      </div>
+                      <div class="card-body">
+                          <h3 class="card-title">{{curso.name}}</h3>
+                          <p class="card-text">{{curso.description}}</p>
+                          <div class="d-flex">
+                            <a class="btn btn-primary" href="{{curso.link}}">Ver más</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
       {{/each}}
-
+        </div>
+        </div>
+        </div>
       {{else}}
-      <h1>No hay cursos en la base de datos</h1>
+      <h1>No hay herramientas en la base de datos</h1>
       {{/if}}
 
     </div>

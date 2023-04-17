@@ -1,4 +1,5 @@
 const Herramientas = require("../models/Herramientas");
+const { Op } = require("sequelize");
 
 exports.GetHerramientasList = (req, res, next) => {
   Herramientas.findAll()
@@ -29,10 +30,10 @@ exports.GetDetailsHerramientas = (req, res, next) => {
 
 
 exports.PostHerramientasBySearch = (req, res, next) => {
-  const search = req.body.Search;
+  const search = req.body.Search.toLowerCase();
   const searchMode = false;
 
-  Herramientas.findAll({where: {name: search}})
+  Herramientas.findAll({where: {name: {[Op.like]: `%${search}%`}}})
     .then((result) => {
     
       const herramientas = result.map((result) => result.dataValues);

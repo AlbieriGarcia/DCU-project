@@ -24,7 +24,11 @@ const Herramientas = sequelize.define("herramienta", {
     type: {
         type: Sequelize.STRING,
         allowNull: false,
-    }   
+    },
+    link: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },     
 });
 
 module.exports = Herramientas;
