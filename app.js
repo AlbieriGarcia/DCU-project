@@ -48,7 +48,7 @@ app.use(registrarRouter);
 app.use(errorController.Get404);
 
 
-sequelize.sync()
+sequelize.sync({alter:true})
 .then((result) => {
     app.listen(5001);
 })

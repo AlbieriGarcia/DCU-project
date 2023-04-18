@@ -18,7 +18,7 @@ const Cursos = sequelize.define("curso", {
         allowNull: false,
     },
     description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1000),
         allowNull: false,
     },
     type: {

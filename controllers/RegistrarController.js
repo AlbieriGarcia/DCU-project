@@ -29,7 +29,7 @@ exports.PostCrearUsuario = (req, res, next) => {
   
     Usuario.create({ name: name, image: image, telefono: telefono, email: email, type: type})
         .then((result) => {
-        res.redirect("/");
+        res.redirect("/perfil");
         })
         .catch((err) => {
         console.log(err);

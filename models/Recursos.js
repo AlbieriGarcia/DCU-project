@@ -18,7 +18,7 @@ const Recursos = sequelize.define("recurso", {
         allowNull: false,
     },
     description: {
-        type: Sequelize.STRING,
+        type: Sequelize.STRING(1000),
         allowNull: false,
     },
     type: {
